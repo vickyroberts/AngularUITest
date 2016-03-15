@@ -1,0 +1,30 @@
+<form class="form-inline" role="form" name="form" ng-submit="lc.Login()">
+	<div class="container" style="border:1pt solid #000000">
+		<div class="row">
+			<div class="col-md-2 col-md-offset-5">
+				<h2>User Login</h2> 
+			</div>
+		</div>
+		<div class="row" class="form-group">				
+			<div class="col-md-6 col-md-offset-4" ng-class="{'has-error':form.txtUserName.$dirty && form.txtUserName.$error.required}">
+				<label for="txtUserName">UserName:</label>
+				<input type="text" id="txtUserName" name="txtUserName" class="form-control" ng-model="lc.txtUserName" required/> 
+				<span ng-show="form.txtUserName.$dirty && form.txtUserName.$error.required && form.txtUserName.$error.email">Username is required</span>
+			</div>
+		</div>
+		<div style="height:10px"></div>
+		<div class="row" class="form-group">				
+			<div class="col-md-6 col-md-offset-4" ng-class="{'has-error':form.txtPassword.$dirty && form.txtPassword.$error.required}">
+				<label for="txtPassword">Password:</label>
+				<input type="password" id="txtPassword" name="txtPassword" class="form-control"  ng-model="lc.txtPassword" required/> 
+				<span ng-show="form.txtPassword.$dirty && form.txtPassword.$error.required">Username is required</span>
+			</div>
+		</div>
+		<div style="height:20px"></div>
+		<div class="row">				
+			<div class="col-md-6 col-md-offset-6">						
+				<input type="submit" id="btnSubmit" ng-disabled="form.$invalid || lc.dataloading" name="btnSubmit" class="btn btn-primary"/> 
+			</div>
+		</div>
+	</div>		
+</form>

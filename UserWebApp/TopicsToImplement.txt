@@ -1,0 +1,13 @@
+1. Services
+2. config, run, app etc. function in app.js
+3. ui-route and stateprovider in detail
+4. Local Storage
+5. Data transfer between views and pages.
+6. $Q
+7. Interceptors, Caching, Session
+7. Custom directive.
+8. Jasmine
+9. Gulp
+
+
+
