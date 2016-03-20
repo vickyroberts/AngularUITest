@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-md-8"><h1>Add User</h1></div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <form name="formUser" class="form-horizontal" role="form" ng-submit="auc.AddUserDetails()">
+            <div class="form-group">
+                <label class="control-label col-sm-2">First Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Enter First Name" ng-model="auc.firstName" required/>
+                    <span ng-show="formUser.firstName.$dirty && formUser.firstName.$error.required">Please enter First Name</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Last Name</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Enter Last Name" ng-model="auc.lastName" required/>
+                    <span ng-show="formUser.lastName.$dirty && formUser.lastName.$error.required">Please enter Last Name</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Gender</label>
+                <div class="radio-inline" style="margin-left:10px"><input type="radio" id="gender" name="gender" value="{{auc.gender}}" ng-model="auc.gender" checked>Male</div>                                      
+                <div class="radio-inline"><input type="radio" id="gender" name="gender" value="F" ng-model="auc.gender">Female</div>                                      
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Birth Date</label>
+                <div class="col-sm-3">
+                    <datepicker date-format="yyyy-MM-dd"><input ng-model="auc.date"  type="text" placeholder="DOB" required/></datepicker>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-sm-2">Address</label>
+                <div class="col-sm-3">
+                    <input type="text" class="form-control" name="address" id="address" placeholder="Enter Address" ng-model="auc.address" required/>
+                    <span ng-show="formUser.address.$dirty && formUser.address.$error.required">Please enter Address</span>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="control-label col-sm-2">Country</label>
+                <div class="col-sm-3">
+                    <select name="country" id="country" ng-model="auc.country">
+                        <option ng-repeat="countries in auc.countryList" value="{{countries.countryId}}">{{countries.countryName}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Email Id</label>
+                <div class="col-sm-3">
+                    <input type="email" class="form-control" name="emailID" id="emailID" placeholder="Enter email id as your username" ng-model="auc.emailID" required/>
+                    <span ng-show="(formUser.emailID.$dirty && formUser.emailID.$error.required) || formUser.emailID.$error.email">Email id not valid.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2">Password</label>
+                <div class="col-sm-3">
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password" ng-model="auc.password" required/>
+                    <span ng-show="formUser.password.$dirty && formUser.password.$error.required">Please enter Password</span>
+                </div>
+            </div>
+            <div style="height:20px"></div>
+            <div class="row">				
+                <div class="col-md-6 col-md-offset-4">						
+                    <input type="submit" id="btnSubmit" ng-disabled="form.$invalid || lc.dataloading" name="btnSubmit" class="btn btn-primary"/> 
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

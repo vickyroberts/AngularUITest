@@ -12,7 +12,7 @@
 		service.GetAllUsers = GetAllUsers;
 		service.AuthenticateUser = AuthenticateUser;
 		//service.CreateUser = CreateUser; 
-		
+		service.AddUserDetails = AddUserDetails;
 		return service;
 		
 		function GetAllUsers(){
@@ -25,6 +25,14 @@
             var config = {headers: {'Content-Type': "application/json"}};			
 			//return $http(req).then(HandleSuccess, HandleError('Error while getting user list'));
             return $http.post('http://localhost:3000/api/authenticateuser', dataObj, config).then(HandleSuccess, HandleError("Error while getting data"));
+		};
+        
+        function AddUserDetails(userDetails){            
+			//var req = {method: 'POST',url: 'http://localhost:3000/api/authenticateuser',headers: {'Content-Type': "application/json"},data: { username: 'test', password: 'test' }};
+            var dataObj = {firstname: userDetails.firstName, lastname: userDetails.lastName, dateofbirth: userDetails.date, gender: userDetails.gender, username: userDetails.emailID,password: userDetails.password,address: userDetails.address,countryid: userDetails.country};
+            var config = {headers: {'Content-Type': "application/json"}};			
+			//return $http(req).then(HandleSuccess, HandleError('Error while getting user list'));
+            return $http.post('http://localhost:3000/api/adduser', dataObj, config).then(HandleSuccess, HandleError("Error while adding user data"));
 		};
 		
 		function HandleSuccess(res)

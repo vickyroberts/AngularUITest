@@ -1,13 +1,28 @@
-1. Services
-2. config, run, app etc. function in app.js
-3. ui-route and stateprovider in detail
-4. Local Storage
+1. Services - Done
+2. config, run, app etc. function in app.js - Done
+3. ui-route and stateprovider in detail - Done
+4. Loading icon - Done
+4. Local Storage - Done
 5. Data transfer between views and pages.
 6. $Q
 7. Interceptors, Caching, Session
 7. Custom directive.
 8. Jasmine
-9. Gulp
+9. Gulp/grunt
+
+
+21 Mar:
+1. Localstorage - Done
+2. Passing parameters - Edit - Delete
+3. Loading Icon - Done
+3. $Q
+
+22 Mar
+1. Grunt
+2. Custom Directive - Chart
+
+23 Mar
+Jasmine - for all the code written
 
 
 

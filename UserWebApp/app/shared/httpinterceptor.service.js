@@ -3,7 +3,7 @@
     
    var angModule = angular.module("app");
    
-   angModule.factory('AppInterceptor', ['$rootScope','$injector', function($rootScope,$injector){       
+   angModule.factory('AppInterceptor', ['$rootScope','$injector','cfpLoadingBar', function($rootScope,$injector,cfpLoadingBar){       
        
        
        return {
@@ -13,10 +13,17 @@
             {
                 config.headers['x-session-token'] = $rootScope.globals.reqToken;
             } 
-            
+            cfpLoadingBar.start();
             return config;
-         } 
+         },
+        response: function(response)
+        {
+             cfpLoadingBar.complete();
+             return response;
+        }
+          
        };
+       
        
    }]);
 })();
