@@ -1,4 +1,6 @@
 (function(){
+    'use strict';
+    
     var angMod = angular.module("app");
     angMod.controller('UserlistController', ['$scope','UserService', function($scope, UserService){
         var ulc = this;

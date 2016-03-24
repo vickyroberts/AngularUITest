@@ -31,18 +31,18 @@
                               
 				callback(response);                
 			});
-		};
+		}
         
         function SetCredentials(username, password)
         {
             $rootScope.globals = {currentUser:{username:username, password:password}, isAuth:true, reqToken : $rootScope.sesTokenId};
             $cookies.put('globals', $rootScope.globals);
-        };
+        }
         
         function ClearCredentials()
         {
             $rootScope.globals = {};
             $cookies.remove("globals");
-        };
-	};
+        }
+	}
 })();

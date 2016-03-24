@@ -1,7 +1,10 @@
 (function(){
+    'use strict';
+    
     var angModule = angular.module('app');    
     
-    angModule.controller('AddUserController', ['$scope','UserService','FlashService','localStorageService','cfpLoadingBar',function($scope,UserService,FlashService,localStorageService,cfpLoadingBar){
+    angModule.controller('AddUserController', ['$scope','UserService','FlashService','localStorageService','cfpLoadingBar','$stateParams',
+    function($scope,UserService,FlashService,localStorageService,cfpLoadingBar,$stateParams){
         
         var auc = this;
         auc.AddUserDetails = AddUserDetails;       
@@ -12,8 +15,31 @@
         (function initController(){
             auc.gender = "M";
             auc.countryList = localStorageService.get('countryList');
+            GetUserDetails();
         })();      
              
+        function     GetUserDetails()
+        {
+            if($stateParams.userId)
+            {
+                UserService.GetAllUserData($stateParams.userId).then(function(retData){            
+                    var userList = {};
+                    if(retData.status=="success" && retData.result)
+                    {
+                        userList = retData.result.userinfo;
+                        auc.firstName = userList[0].firstName;                        
+                        auc.lastName = userList[0].lastName;
+                        auc.gender = userList[0].gender;
+                        auc.country = userList[0].countryId;
+                    }
+                    else
+                    {                    
+                        auc.firstName = "No data";        
+                    }               
+                                    
+                });
+            }
+        }
         
         function AddUserDetails(){
             
@@ -38,7 +64,7 @@
                 }
             });
            
-        };
+        }
         
     }]);
     

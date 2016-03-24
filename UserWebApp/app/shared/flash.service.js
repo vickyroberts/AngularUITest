@@ -28,21 +28,21 @@
                     }
                 }
             }
-        };
+        }
         
         function Success(message, keepAfterLocationChange)
         {
             $rootScope.flash = {message: message, 
                 keepAfterLocationChange:keepAfterLocationChange,
             type:'success'};
-        };
+        }
         
         function Error(message, keepAfterLocationChange)
         {
             $rootScope.flash = {message: message, 
                 keepAfterLocationChange:keepAfterLocationChange,
             type:'error'};
-        };
+        }
         
     }]);
     

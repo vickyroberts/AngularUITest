@@ -17,12 +17,22 @@
 3. Loading Icon - Done
 3. $Q
 
-22 Mar
+23 Mar
 1. Grunt
 2. Custom Directive - Chart
+3. Return url
 
-23 Mar
+24 Mar
+1. Directive
+2. $Broadcast
+
+25 Mar
+Jasmine
+Grunt
+
+26 Mar
 Jasmine - for all the code written
+$rootScope Global 
 
 
 

@@ -16,8 +16,8 @@
             <tr ng-repeat="user in ulc.userList">
                 <td>{{user.firstName}}</td>
                 <td>{{user.lastName}}</td>
-                <td>{{user.gender}}</td>
-                <td><a ui-sref="edituser({userId:user.userId})" style="cursor:pointer">Edit</a> | Delete</td>
+                <td>{{user.gender == "1"? "Male" : "Female"}}</td>
+                <td><a ui-sref="landing.edituser({userId:user.userId})" style="cursor:pointer">Edit</a> | Delete</td>
             </tr>            
             </tbody>
         </table>

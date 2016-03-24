@@ -3,8 +3,8 @@
 	
 	var angModule = angular.module('app');
 	
-	angModule.controller('LoginController', ['$location','AuthService','FlashService','localStorageService',
-		function($location,AuthService,FlashService,localStorageService){
+	angModule.controller('LoginController', ['$location','AuthService','$state','$stateParams','FlashService','localStorageService',
+		function($location,AuthService,$state,$stateParams,FlashService,localStorageService){
 			var lc = this;		
 			lc.Login = Login;
 			
@@ -20,15 +20,22 @@
 				
 				AuthService.Login(lc.txtUserName, lc.txtPassword, function(response){
 					if(response.success)
-					{
-						$location.path('/landing');
+					{                        
+                        if(typeof $stateParams.returnState==='undefined' || !$stateParams.returnState)
+                        {
+						    $state.go('landing.listuser');                            
+                        }
+                        else
+                        {
+                            $state.go($stateParams.returnState, $stateParams.returnParams);
+                        }
                         AuthService.SetCredentials(lc.txtUserName, lc.txtPassword);
                         SetCountryList();
 					}
 					else
 					{
 						lc.dataloading = false;
-                        $location.path('/login');
+                        $state.go('login');
                         FlashService.Error("Username or password is incorrect", false);
 					}
 				});
